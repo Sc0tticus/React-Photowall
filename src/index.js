@@ -1,38 +1,27 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 
-
-const tasks = ['take out trash', 'shovel the driveway','walk the dog'];
-
-  // const element = 
-  //   <div>
-  //     <h1>Task List</h1>
-  //       <ol>
-  //         { tasks.map((task, index) => <li key= {index}> {task} </li>)}
-  //       </ol>
-  //   </div>
-
 class List extends Component {
   render() {
   return (
     <ol>
-        {tasks.map((task, index) => <li key= {index}> {task} </li>)}
-    </ol>
-    )
+        {this.props.tasks.map((task, index) => <li key= {index}> {task} </li>)}
+    </ol>)
   }
 }
 
 class Title extends Component {
   render() {
-    return <h1>Task List</h1>
+    return <h1>{this.props.title}</h1>
   }
 }
 
 class Main extends Component {
   render(){
     return <div> 
-      <Title />
-      <List />
+      <Title title={'toDos'} />
+      <List tasks={['Mow the lawn', 'walk the dog']}/>
+      <List tasks={['hose the driveway', 'finish the laundry']}/>
     </div>
   } 
 }
