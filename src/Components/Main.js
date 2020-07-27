@@ -14,16 +14,17 @@ class Main extends Component {
         "3919321_1443393332_n.jpg"
         }, {
         id: "1",
-        description: "Aliens???",
-        imageLink: "https://img.purch.com/rc/640x415/aHR0cDovL3d3dy5zcGFjZS5jb20vaW1hZ2VzL2kvMDAwLzA3Mi84NTEvb3JpZ2luYWwvc3BhY2V4LWlyaWRpdW00LWxhdW5jaC10YXJpcS1tYWxpay5qcGc=" +
-        "08323785_735653395_n.jpg"
+        description: "Old Jack Burton",
+        imageLink: "https://images-na.ssl-images-amazon.com/images/I/51lV3e7tMcL._AC_SX385_.jpg"
         }, {
         id: "2",
         description: "On a vacation!",
         imageLink: "https://fm.cnbc.com/applications/cnbc.com/resources/img/editorial/2017/08/24/104670887-VacationExplainsTHUMBWEB.1910x1000.jpg"
-        }]
+        }],
+        screen: 'photos' 
     }
     this.removePhoto = this.removePhoto.bind(this)
+    this.navigate = this.navigate.bind(this)
   }
 
   removePhoto(postRemoved){
@@ -32,6 +33,13 @@ class Main extends Component {
         posts: state.posts.filter(post => post !== postRemoved)
       }))
   }
+
+  navigate(){
+    this.setState({
+      screen: 'addPhoto'
+    })
+  }
+
 
   componentDidMount(){
     }
@@ -44,12 +52,23 @@ class Main extends Component {
 
 
   render(){
-    return <div> 
-      <Title title={'AvySavvy'} />
-      <PhotoWall 
-      posts={this.state.posts} 
-      onRemovePhoto={this.removePhoto} 
-      />
+    return <div>
+
+    { 
+      this.state.screen === 'photos' && (
+      <div>
+        <Title title={'AvySavvy'} />
+        <PhotoWall posts={this.state.posts} onRemovePhoto={this.removePhoto} onNavigate={this.navigate}/>
+      </div>
+      )
+    }
+    {
+      this.state.screen === 'addPhoto' && (
+      <div>
+        <AddPhoto />
+      </div>
+      )
+    }
     </div>
   } 
 }
