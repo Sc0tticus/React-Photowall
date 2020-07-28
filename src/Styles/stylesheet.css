@@ -46,6 +46,48 @@ html {
   flex-grow: 1;
   margin: 0 2rem 2rem 2rem;
  }
+ 
+ .button-container {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ }
+ button, .button {
+  border: 2px solid #f2f2f2;
+  background: none;
+  flex-basis: 48%;
+  display: inline-block;
+  line-height: 2;
+  text-decoration: none;
+  padding: 5px;
+  text-align: center;
+  font-size: 15px;
+  color: red;
+  transition: all 0.2s;
+  box-sizing: padding-box;
+ }
+
+
+
+ .remove-button {
+   flex-basis: 48%;
+   color: red;
+   font-size: 15px;
+   border: 2px solid #f2f2f2;
+   line-height: 2;
+   padding: 5px;
+ }
+ 
+ .addIcon {
+  background: url("https://image.flaticon.com/icons/svg/60/60740.svg") center no-repeat;
+  background-size: contain;
+  padding: 40px;
+  display: table;
+  margin: 20px auto;
+  border: none;
+ }
+
  .figure .single-photo {
   flex-basis: calc(33.333% - 4rem);
   flex-grow: 1;
@@ -102,34 +144,9 @@ html {
   outline: none;
   resize: vertical;
  }
- .addIcon {
-  background: url("https://image.flaticon.com/icons/svg/60/60740.svg") center no-repeat;
-  background-size: contain;
-  padding: 40px;
-  display: table;
-  margin: 20px auto;
-  border: none;
- }
- .button-container {
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
- }
- button, .button {
-  border: 2px solid #f2f2f2;
-  background: none;
-  flex-basis: 48%;
-  display: inline-block;
-  line-height: 2;
-  text-decoration: none;
-  padding: 5px;
-  text-align: center;
-  font-size: 15px;
-  color: red;
-  transition: all 0.2s;
-  box-sizing: padding-box;
- }
+ 
+ 
+ 
  button:hover,.button:hover, button:focus, .button:focus {
   border-color: #00f;
   outline: 0;
@@ -150,13 +167,15 @@ html {
   justify-content: center;
   color: black
  }
+
  .form {
    background: red;
   width: 360px;
   padding: 0 0 0;
   margin: auto;
+  text-align: center;
  }
- 
+
  .form input {
   font-family: sans-serif;
   outline: 0;
@@ -194,3 +213,5 @@ html {
   justify-content: center;
   font-size: 28pt;
  }
+
+
