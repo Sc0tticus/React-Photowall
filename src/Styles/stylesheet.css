@@ -38,9 +38,8 @@ h1 a:focus {
 	font-style: normal;
 }
 
-
 body {
-	background: offwhite;
+  background: rgb(89, 147, 3);
 }
 
 .photoGrid {
