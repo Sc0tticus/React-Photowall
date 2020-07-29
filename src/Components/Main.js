@@ -1,35 +1,40 @@
 import React, {Component} from 'react'
-import Title from './Title'
 import PhotoWall from './PhotoWall'
 import AddPhoto from './AddPhoto'
-import {Route} from 'react-router-dom'
+import {Route, Link} from 'react-router-dom'
+import Single from './Single'
 
 class Main extends Component {
     constructor() {
         super()
-        }
+    }
 
     render() {
-      console.log(this.props.posts)
         return ( 
         
         <div>
+            <h1> 
+                <Link to="/"> Photowall </Link>    
+             </h1>
             <Route exact path = "/" render={() => (
                  <div>
-                      <Title title={'Photowall'}/>
-                      {/* <PhotoWall posts={this.state.posts} onRemovePhoto={this.removePhoto} onNavigate = {this.navigate}/> */}
+                      <PhotoWall {...this.props} />   
                  </div>
+
             )}/> 
 
-            {/* <Route path= "/AddPhoto" render = {({history}) => (
-                <AddPhoto onAddPhoto={(addedPost) => {
-                    this.addPhoto(addedPost)
-                    history.push('/')
-                }}/>
-            )}/> */}
+            <Route path= "/AddPhoto" render = {({history}) => (
+                <AddPhoto {...this.props} onHistory={history}/>
+            )}/>
+
+            <Route path="/single/:id" render = {(params) => (
+                <Single  {...this.props} {...params}/> 
+            )}/>
          </div>
         )
     }
+
 }
+
 
 export default Main
