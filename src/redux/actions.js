@@ -1,6 +1,14 @@
 //remove
 
+export function updatePosts(index) {
+  return {
+    type: 'UPDATE_POSTS',
+    posts: index
+}
+}
+
 export function removePost(index) {
+  console.log('REMOVE ACTION', index)
   return {
       type: 'REMOVE_POST',
       index
