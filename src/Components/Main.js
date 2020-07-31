@@ -24,7 +24,7 @@ class Main extends Component {
         
         <div>
             <h1> 
-                <Link to="/"> Photowall </Link>    
+                <Link to="/"> Avy Savvy </Link>    
              </h1>
             <Route exact path = "/" render={() => (
                  <div>
