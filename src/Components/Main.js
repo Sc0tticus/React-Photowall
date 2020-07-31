@@ -10,12 +10,18 @@ class Main extends Component {
     }
 
     componentDidMount() {
-        console.log('do NOT TELL MEEEEE')
         fetch("http://localhost:4000/posts")
         .then(res => res.json())
         .then(
             (posts => this.props.updatePosts(posts)),
-            (error) => console.log('Shit, something went wrong!!!', error)
+            (error) => console.log('Something went wrong fetching posts!!!', error)
+        )
+
+        fetch("http://localhost:4000/comments")
+        .then(res => res.json())
+        .then(
+            (comments => this.props.updateComments(comments)),
+            (error) => console.log('Something went wrong fetching comments!!!', error)
         )
     }
 

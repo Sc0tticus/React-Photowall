@@ -19,6 +19,25 @@ function addPost(post) {
     )
 }
 
+function addPostComment(comment, postId) {
+    console.log('comment request', comment, '::::postId:::', postId)
+    fetch(
+        `http://localhost:4000/comments`, 
+        {
+            method: 'POST',
+            body: JSON.stringify({ description: comment, post_id: postId}),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }
+    )
+    .then(res => res.json())
+    .then(
+        (result) => console.log('Post persisted:', result),
+        (error) => console.log('Something went wrong!!!', error)
+    )
+}
+
 function deletePost(postId) {
     fetch(`http://localhost:4000/posts/${postId}`, {method: 'DELETE'})
     .then(
@@ -27,14 +46,29 @@ function deletePost(postId) {
     )
 }
 
-function comments(state={}, action) {
+function comments(state = {}, action) {
     switch (action.type) {
-        case 'ADD_COMMENT':  
+        case 'UPDATE_COMMENTS': {
+            const nextState = action.comments.reduce((state, comment) => {
+                if (typeof state[comment.post_id] === "undefined") {
+                    state[comment.post_id] = [comment.description]
+                } else {
+                    state[comment.post_id].push(comment.description)
+                }
+
+                return state
+            }, {})
+
+            return {...state, ...nextState}; 
+        }
         
-        if (!state[action.postId]) {
-            return {...state, [action.postId]: [action.comment]}
-        } else {
-            return {...state, [action.postId]: [...state[action.postId], action.comment] }
+        case 'ADD_COMMENT': {
+            if (!state[action.postId]) {
+                addPostComment(action.comment, action.postId)
+                return {...state, [action.postId]: [action.comment]}
+            } else {
+                return {...state, [action.postId]: [...state[action.postId], action.comment] }
+            }
         }
         
         default: return state

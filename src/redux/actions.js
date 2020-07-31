@@ -4,7 +4,14 @@ export function updatePosts(index) {
   return {
     type: 'UPDATE_POSTS',
     posts: index
+  }
 }
+
+export function updateComments(index) {
+  return {
+    type: 'UPDATE_COMMENTS',
+    comments: index
+  }
 }
 
 export function removePost(index) {
