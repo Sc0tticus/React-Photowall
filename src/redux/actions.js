@@ -8,7 +8,6 @@ export function updatePosts(index) {
 }
 
 export function removePost(index) {
-  console.log('REMOVE ACTION', index)
   return {
       type: 'REMOVE_POST',
       index

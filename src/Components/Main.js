@@ -9,6 +9,16 @@ class Main extends Component {
         super()
     }
 
+    componentDidMount() {
+        console.log('do NOT TELL MEEEEE')
+        fetch("http://localhost:4000/posts")
+        .then(res => res.json())
+        .then(
+            (posts => this.props.updatePosts(posts)),
+            (error) => console.log('Shit, something went wrong!!!', error)
+        )
+    }
+
     render() {
         return ( 
         
