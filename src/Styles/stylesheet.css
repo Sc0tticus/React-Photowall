@@ -234,3 +234,8 @@ button:hover,.button:hover, button:focus, .button:focus {
 	justify-content: center;
 	font-size: 28pt;
 }
+
+.signup-form {
+	display: flex;
+	flex-flow: column;
+}

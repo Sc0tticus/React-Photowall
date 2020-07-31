@@ -3,6 +3,7 @@ import PhotoWall from './PhotoWall'
 import AddPhoto from './AddPhoto'
 import {Route, Link} from 'react-router-dom'
 import Single from './Single'
+import SignUpForm from './SignUpForm'
 
 class Main extends Component {
     constructor() {
@@ -13,6 +14,9 @@ class Main extends Component {
         return ( 
         
         <div>
+            
+            {/* <SignUpForm signUp = {this.signUp} alerts={this.state.alerts}/> */}
+
             <h1> 
                 <Link to="/"> Photowall </Link>    
              </h1>

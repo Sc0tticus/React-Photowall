@@ -18,4 +18,34 @@ function mapDispatchToProps(dispatch) {
 
 const App = withRouter(connect(mapStateToProps, mapDispatchToProps)(Main))
 
+
+// state = {
+//     todos/posts: [],
+//     user: {},
+//     alerts: []
+
+// }
+// signUp = (user) => {
+//     fetch("http://localhost:3000/users", {
+//             method: "POST",
+//             headers: {
+//                 "Content-Type:" "application/json"
+//             },
+//             body: JSON.stringify({user})
+//             }) 
+        // .then(response => response.json())
+        // .then(response => {
+        //     if(response.errors){
+        //        this.setState({alerts: response.errors })
+        //     }
+        //     else {
+        //         this.setState({
+        //             user: response.user,
+        //             alerts: ["User succesfully created!"]
+        //         })
+        //     }
+        // })
+// }
+
+
 export default App
