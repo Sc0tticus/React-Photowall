@@ -4,18 +4,6 @@ import PropTypes from 'prop-types'
 import {Link} from 'react-router-dom'
 //anchor tag, href attribute
 class PhotoWall extends React.Component {
-    componentDidMount() {
-        fetch("http://localhost:4000/posts")
-        .then(res => res.json())
-        .then(
-            (posts => {
-                console.log('SUCCESS!!! The result:', { posts })
-                this.props.updatePosts(posts);
-            }),
-            (error) => { console.log('Shit, something went wrong!!!', error) }
-        )
-    }
-
     render() {
     return  <div>
              <Link className = "addIcon" to="/AddPhoto"> </Link>
@@ -24,7 +12,7 @@ class PhotoWall extends React.Component {
                     .sort(function(x,y) {
                         return  y.id - x.id
                     })
-                    .map((post, index) => <Photo key={index} post={post} {...this.props} index={index}/>)}
+                    .map((post) => <Photo key={post.id} post={post} {...this.props} />)}
              </div>
         </div>
     }
